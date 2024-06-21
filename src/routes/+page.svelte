@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+    <title>
+        calculater
+    </title>
+</svelte:head>
+
+<div class=" bg-white h-[25rem] w-[18rem] rounded-3xl ">
+
+</div>
+
+
