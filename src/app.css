@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 button {
-    @apply bg-slate-300 rounded-full ;
+    @apply bg-slate-300 rounded-full h-12 w-12 border-spacing-1 text-xl shadow-md;
 }
