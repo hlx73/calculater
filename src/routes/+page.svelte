@@ -5,7 +5,16 @@ function addequation(value:string) {
 equasion+=value;
 }
 function backspace(){
-  equasion=equasion.substring(0,equasion.length-1);
+    switch(equasion.substring(equasion.length-3,equasion.length)){
+     case " + ":
+     case " - ":
+     case " / ":
+     case " * ":
+    equasion= equasion.substring(0,equasion.length-3);
+     break;
+     default:
+     equasion=equasion.substring(0,equasion.length-1);
+  }
 }
 function clear(){
     equasion="";
@@ -20,18 +29,20 @@ equasion=eval(equasion);
     </title>
 </svelte:head>
 
-<div class=" bg-white  rounded-3xl grid grid-cols-4 gap-1 p-6 font-semibold shadow-xl">
-    <div class="bg-blue-700 rounded-full col-span-4 h-12 flex items-center px-4
-    mb-2 text-white text-lg ">
+<div class=" bg-white  rounded-3xl grid grid-cols-4 gap-1 p-6 font-semibold shadow-xl max-w-[15.5rem]">
+
+    <div class="bg-blue-700 rounded-xl col-span-4 min-h-12 flex items-center px-4
+    mb-2 text-white text-lg break-all">
         {equasion}
     </div>
+
     <button class="bg-slate-100" on:click={() => addequation("/100")}>%</button>
     <!--delete-->
-    <button on:click={backspace} class ="bg-slate-100">
+    <button on:click={backspace} >
         <Backspase/>
         </button>
     
-    <button on:click={clear} class="bg-slate-100 text-slate-500 text-gray-500">
+    <button on:click={clear} class= "text-slate-500 text-gray-500 bg-slate-100 ">
         C
     </button>
     <button on:click={() => addequation(" + ")} class="text-white bg-green-400">
