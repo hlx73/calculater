@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 button {
-    @apply  bg-slate-300 text-slate-600 hover:scale-95 transition-all rounded-full h-12 w-12 border-spacing-1 text-xl shadow-md font-semibold flex items-center justify-center  ;
+    @apply  bg-slate-300 text-gray-500 hover:scale-95 transition-all rounded-full h-12 min-w-12 border-spacing-1 text-xl shadow-md font-semibold flex items-center justify-center  ;
 } 
 body{
     font-family: "Kanit", sans-serif;

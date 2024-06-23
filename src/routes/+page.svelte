@@ -10,6 +10,9 @@ function backspace(){
 function clear(){
     equasion="";
 }
+function solve(){
+equasion=eval(equasion);
+}
 </script>
 <svelte:head>
     <title>
@@ -27,9 +30,13 @@ function clear(){
     <button on:click={backspace} class ="bg-slate-100">
         <Backspase/>
         </button>
-    <button class="bg-slate-100"> CE</button>
-    <button on:click={clear} class="bg-blue-950 text-gray-50">C</button>
-   
+    
+    <button on:click={clear} class="bg-slate-100 text-slate-500 text-gray-500">
+        C
+    </button>
+    <button on:click={() => addequation(" + ")} class="text-white bg-green-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+    </button>
 
     <button on:click={() => addequation("7")}>7</button>
     <button on:click={() => addequation("8")}>8</button>
@@ -57,11 +64,11 @@ function clear(){
 
     <button on:click={() => addequation(".")}>.</button>
     <button on:click= {() => addequation("0")}>0</button>
-    <button on:click>=</button>
-    <!--add-->
-    <button on:click={() => addequation(" + ")} class="text-white bg-green-400">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+    <button on:click={solve} class="col col-span-2">
+        =
     </button>
+    <!--add-->
+    
 
 </div>
 
