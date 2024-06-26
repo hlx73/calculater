@@ -1,9 +1,14 @@
 <script lang="ts">
 	import Backspase from './../lib/icos/backspase.svelte';
+    import { onMount } from 'svelte';
+
  let equasion: string="";
 function addequation(value:string) {
 equasion+=value;
 }
+ 
+
+
 function backspace(){
     switch(equasion.substring(equasion.length-3,equasion.length)){
      case " + ":
@@ -35,9 +40,18 @@ equasion=answer;
     }
 }
 function onkeydown(e:KeyboardEvent){
-    new Audio('click.mp3').play();
-document.getElementById(e.key)?.click() ;   
+    new Audio('click.wav').play();
+document.getElementsById(e.key)?.click() ;   
 }
+onMount(()=> {
+let allbuttons=document.getElementsByTagName('button');
+for(let i=0;i<allbuttons.length;i++){
+    allbuttons[i].addEventListener('click',()=>{
+        new Audio('/click.wav').play();
+    })
+}
+});
+
 </script>
 <svelte:head>
     <title>
@@ -62,7 +76,7 @@ document.getElementById(e.key)?.click() ;
         <Backspase/>
         </button>
     
-    <button id="Delete" on:click={clear} class= "text-slate-500 text-gray-500 bg-slate-100 ">
+    <button id="Delete" on:click={clear} class= "text-slate-500 text-gray- bg-slate-100 ">
         C
     </button>
     <button id="+" on:click={() => addequation(" + ")} class="text-white bg-green-400">
